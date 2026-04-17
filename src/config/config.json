@@ -1,0 +1,8 @@
+{
+  "site": {
+    "title": "AI Tools Hub Pro",
+    "base_url": "https://aitoolshubpro.me",
+    "base_path": "/",
+    "trailing_slash": false
+  }
+}

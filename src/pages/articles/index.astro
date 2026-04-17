@@ -1,0 +1,40 @@
+---
+const articles = [
+  {
+    title: "كيف تختار أداة ذكاء اصطناعي مناسبة لعملك؟",
+    summary: "خطوات عملية لمقارنة الأدوات بناءً على الهدف، السعر، وسهولة الاستخدام."
+  },
+  {
+    title: "أفضل ممارسات كتابة أوامر فعّالة (Prompting)",
+    summary: "قواعد واضحة لتحسين جودة نتائج أدوات الذكاء الاصطناعي."
+  },
+  {
+    title: "استخدام الذكاء الاصطناعي في صناعة المحتوى",
+    summary: "من التخطيط إلى النشر: كيف تسرّع إنتاج المقالات باحتراف."
+  }
+];
+---
+
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مقالات الذكاء الاصطناعي</title>
+  </head>
+  <body>
+    <main style="max-width: 900px; margin: 2rem auto; font-family: sans-serif; line-height: 1.8; padding: 0 1rem;">
+      <h1>مقالات</h1>
+      <p><a href="/">العودة للرئيسية</a></p>
+      <ul>
+        {
+          articles.map((article) => (
+            <li style="margin-bottom: 1rem;">
+              <h2 style="margin: 0 0 .3rem;">{article.title}</h2>
+              <p style="margin: 0;">{article.summary}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </body>
+</html>
