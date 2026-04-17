@@ -47,9 +47,16 @@ const fontsConfig = Object.entries(theme.fonts.font_family)
   });
 
 // https://astro.build/config
+const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true";
+const [repoOwner = "", repoName = ""] = (process.env.GITHUB_REPOSITORY || "").split("/");
+const isUserOrOrgPagesRepo = repoName.endsWith(".github.io") && repoName.startsWith(repoOwner);
+const githubPagesBasePath = isUserOrOrgPagesRepo ? "/" : `/${repoName}/`;
+const resolvedBasePath =
+  isGitHubPagesBuild && config.site.base_path === "/" ? githubPagesBasePath : config.site.base_path;
+
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
-  base: config.site.base_path ? config.site.base_path : "/",
+  base: resolvedBasePath ? resolvedBasePath : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
