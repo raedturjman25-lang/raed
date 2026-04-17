@@ -1,6 +1,8 @@
 ---
 import config from "@/config/config.json";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+const basePath = import.meta.env.BASE_URL || "/";
+const withBase = (path: string) => `${basePath}${path.replace(/^\/+/, "")}`;
 
 const featuredTools = [
   { name: "ChatGPT", use: "كتابة وتسويق", category: "مساعد ذكي" },
@@ -26,8 +28,8 @@ const latestArticles = [
       والإنتاج.
     </p>
     <div class="hero-actions">
-      <a class="btn primary" href="/tools">ابدأ باستكشاف الأدوات</a>
-      <a class="btn ghost" href="/articles">تصفح المقالات</a>
+      <a class="btn primary" href={withBase("/tools")}>ابدأ باستكشاف الأدوات</a>
+      <a class="btn ghost" href={withBase("/articles")}>تصفح المقالات</a>
     </div>
   </section>
 
