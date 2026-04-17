@@ -1,11 +1,8 @@
-import fs from "node:fs";
-import path from "node:path";
+import { writeMarker } from "./buildSetup.js";
 
-const root = process.cwd();
-const outputDir = path.join(root, ".json");
+const filePath = writeMarker("theme.generated.json", {
+  generatedAt: new Date().toISOString(),
+  source: "themeGenerator"
+});
 
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
-}
-
-console.log("themeGenerator: done");
+console.log(`themeGenerator: wrote ${filePath}`);
