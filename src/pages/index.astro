@@ -1,16 +1,61 @@
 ---
 import config from "@/config/config.json";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const featuredTools = [
+  { name: "ChatGPT", use: "كتابة وتسويق", category: "مساعد ذكي" },
+  { name: "Midjourney", use: "تصميم إعلانات وصور", category: "توليد صور" },
+  { name: "Runway", use: "مونتاج وصناعة فيديو", category: "فيديو بالذكاء الاصطناعي" },
+];
+
+const latestArticles = [
+  "كيف تختار أداة ذكاء اصطناعي مناسبة لعملك؟",
+  "أفضل ممارسات كتابة أوامر فعّالة (Prompting)",
+  "استخدام الذكاء الاصطناعي في صناعة المحتوى",
+];
 ---
 
 <BaseLayout
   title={config.site.title}
   description="منصة عربية لاكتشاف أدوات الذكاء الاصطناعي وقراءة مقالات تطبيقية."
 >
-  <h1>موقع أدوات الذكاء الاصطناعي والمقالات</h1>
-  <p>مرحبًا بك في {config.site.title}.</p>
-  <ul>
-    <li><a href="/tools">استكشف الأدوات</a></li>
-    <li><a href="/articles">اقرأ المقالات</a></li>
-  </ul>
+  <section class="hero">
+    <h1>واجهة احترافية لموقع أدوات الذكاء الاصطناعي والمقالات</h1>
+    <p>
+      اكتشف أفضل أدوات الذكاء الاصطناعي، تابع أحدث المقالات العملية، وابنِ سير عمل أسرع للمحتوى والتصميم
+      والإنتاج.
+    </p>
+    <div class="hero-actions">
+      <a class="btn primary" href="/tools">ابدأ باستكشاف الأدوات</a>
+      <a class="btn ghost" href="/articles">تصفح المقالات</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>أدوات مميزة</h2>
+    <div class="cards">
+      {
+        featuredTools.map((tool) => (
+          <article class="card">
+            <span class="chip">{tool.category}</span>
+            <h3>{tool.name}</h3>
+            <p>{tool.use}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>أحدث المقالات</h2>
+    <ul class="cards list-reset">
+      {
+        latestArticles.map((title) => (
+          <li class="card">
+            <h3>{title}</h3>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>

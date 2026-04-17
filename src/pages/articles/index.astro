@@ -4,30 +4,49 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 const articles = [
   {
     title: "كيف تختار أداة ذكاء اصطناعي مناسبة لعملك؟",
+    tag: "دليل عملي",
     summary: "خطوات عملية لمقارنة الأدوات بناءً على الهدف، السعر، وسهولة الاستخدام."
   },
   {
     title: "أفضل ممارسات كتابة أوامر فعّالة (Prompting)",
+    tag: "تحسين النتائج",
     summary: "قواعد واضحة لتحسين جودة نتائج أدوات الذكاء الاصطناعي."
   },
   {
     title: "استخدام الذكاء الاصطناعي في صناعة المحتوى",
+    tag: "صناعة المحتوى",
     summary: "من التخطيط إلى النشر: كيف تسرّع إنتاج المقالات باحتراف."
-  }
+  },
+  {
+    title: "أخطاء شائعة عند استخدام أدوات الذكاء الاصطناعي",
+    tag: "أفضل الممارسات",
+    summary: "تعرّف على الأخطاء المتكررة وكيف تتجنبها لبناء سير عمل أكثر ثباتًا."
+  },
+  {
+    title: "كيف تبني خطة محتوى شهرية بالذكاء الاصطناعي",
+    tag: "تسويق",
+    summary: "نموذج تطبيقي لتوليد أفكار المحتوى وجدولتها وقياس نتائجها."
+  },
 ];
 ---
 
 <BaseLayout title="مقالات الذكاء الاصطناعي">
-  <h1>مقالات</h1>
-  <p><a href="/">العودة للرئيسية</a></p>
-  <ul>
-    {
-      articles.map((article) => (
-        <li style="margin-bottom: 1rem;">
-          <h2 style="margin: 0 0 .3rem;">{article.title}</h2>
-          <p style="margin: 0;">{article.summary}</p>
-        </li>
-      ))
-    }
-  </ul>
+  <section class="hero">
+    <h1>مقالات الذكاء الاصطناعي</h1>
+    <p>محتوى عربي عملي يساعدك على استخدام الأدوات بفعالية وتحويلها إلى نتائج حقيقية.</p>
+  </section>
+
+  <section class="section">
+    <ul class="cards list-reset">
+      {
+        articles.map((article) => (
+          <li class="card">
+            <span class="chip">{article.tag}</span>
+            <h2>{article.title}</h2>
+            <p>{article.summary}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>

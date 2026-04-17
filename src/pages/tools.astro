@@ -5,31 +5,60 @@ const tools = [
   {
     name: "ChatGPT",
     category: "مساعد كتابة",
-    description: "لإنشاء المحتوى، التلخيص، والإجابة على الأسئلة."
+    pricing: "مجاني + خطط مدفوعة",
+    description: "لإنشاء المحتوى، التلخيص، والإجابة على الأسئلة بسرعة."
   },
   {
     name: "Midjourney",
     category: "توليد صور",
-    description: "لإنشاء صور فنية وتسويقية بالذكاء الاصطناعي."
+    pricing: "مدفوع",
+    description: "لإنشاء صور فنية وتسويقية بالذكاء الاصطناعي بجودة عالية."
   },
   {
     name: "Runway",
     category: "فيديو",
+    pricing: "مجاني محدود + مدفوع",
     description: "لتحرير وإنتاج فيديوهات مدعومة بالذكاء الاصطناعي."
-  }
+  },
+  {
+    name: "Notion AI",
+    category: "إنتاجية",
+    pricing: "مدفوع",
+    description: "لتلخيص الاجتماعات، توليد الأفكار، وصياغة الوثائق."
+  },
+  {
+    name: "Perplexity",
+    category: "بحث",
+    pricing: "مجاني + مدفوع",
+    description: "لبحث سريع مع مراجع مفيدة وإجابات محدثة."
+  },
+  {
+    name: "ElevenLabs",
+    category: "صوت",
+    pricing: "مجاني محدود + مدفوع",
+    description: "لتحويل النص إلى صوت طبيعي ودبلجة محتوى متعددة اللغات."
+  },
 ];
 ---
 
 <BaseLayout title="أدوات الذكاء الاصطناعي">
-  <h1>دليل أدوات الذكاء الاصطناعي</h1>
-  <p><a href="/">العودة للرئيسية</a></p>
-  {
-    tools.map((tool) => (
-      <article style="border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
-        <h2>{tool.name}</h2>
-        <p><strong>التصنيف:</strong> {tool.category}</p>
-        <p>{tool.description}</p>
-      </article>
-    ))
-  }
+  <section class="hero">
+    <h1>دليل أدوات الذكاء الاصطناعي</h1>
+    <p>واجهة احترافية تجمع أفضل الأدوات حسب التصنيف والاستخدام ونموذج التسعير.</p>
+  </section>
+
+  <section class="section">
+    <div class="cards">
+      {
+        tools.map((tool) => (
+          <article class="card">
+            <span class="chip">{tool.category}</span>
+            <h2>{tool.name}</h2>
+            <p>{tool.description}</p>
+            <p><strong>السعر:</strong> {tool.pricing}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
 </BaseLayout>
