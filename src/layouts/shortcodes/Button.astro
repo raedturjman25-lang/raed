@@ -3,6 +3,6 @@ const { href = "#", label = "زر" } = Astro.props;
 ---
 {
   href === "#"
-    ? <button type="button" style="padding:.5rem 1rem;border:1px solid #ccc;border-radius:6px;background:#f8f8f8;">{label}</button>
-    : <a href={href} role="button" style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:6px;text-decoration:none;">{label}</a>
+    ? <button type="button" aria-label={label} style="padding:.5rem 1rem;border:1px solid #ccc;border-radius:6px;background:#f8f8f8;cursor:pointer;">{label}</button>
+    : <a href={href} aria-label={label} style="display:inline-block;padding:.5rem 1rem;border:1px solid #ccc;border-radius:6px;text-decoration:none;">{label}</a>
 }
